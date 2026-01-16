@@ -5,29 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Word Count Hero – Free Online Word Counter Tool</title>
   <meta name="description" content="Word Count Hero is a free, accurate online word counter tool that instantly counts words, characters, sentences, paragraphs, and estimates reading time. Improve your writing with expert tips and easy-to-use features." />
-
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Word Count Hero",
-    "url": "https://wordcounthero.com/",
-    "description": "Free, accurate online word counter tool that counts words, characters, sentences, paragraphs, and estimates reading time instantly.",
-    "applicationCategory": "WebApplication",
-    "operatingSystem": "Web",
-    "author": {
-      "@type": "Person",
-      "name": "Word Count Hero Team"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  }
-  </script>
-
   <style>
     :root {
       --coral: #DE7356;
@@ -60,7 +37,7 @@
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end; /* pushed right on desktop */
       align-items: center;
       gap: 24px;
       flex-wrap: nowrap;
@@ -74,6 +51,8 @@
       cursor: pointer;
       user-select: none;
       flex: 0 0 auto;
+      margin-right: auto; /* push nav links to right */
+      text-align: left;
     }
 
     nav div.links {
@@ -81,8 +60,7 @@
       gap: 20px;
       flex-wrap: nowrap;
       flex: 1 1 auto;
-      justify-content: center;
-      padding-left: 20px; /* shift links slightly to the right */
+      justify-content: flex-end;
     }
 
     nav a {
@@ -231,32 +209,13 @@
       user-select: none;
     }
 
-    /* Mobile styling */
+    /* Mobile styling - improved */
     @media (max-width: 768px) {
-      .stats {
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 16px;
-      }
-      .card-grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px;
-      }
-      textarea {
-        font-size: 14px;
-        padding: 12px;
-      }
       nav {
         flex-direction: column;
         gap: 8px;
         padding: 0;
-      }
-      nav div.links {
-        flex-wrap: nowrap;
-        justify-content: center;
-        gap: 16px;
-        width: 100%;
-        order: 2;
-        padding-left: 0; /* remove padding left on mobile */
+        align-items: center; /* center all items */
       }
       .logo {
         font-size: 28px;
@@ -265,8 +224,35 @@
         flex: none;
         text-align: center;
         width: 100%;
+        margin-right: 0; /* reset margin-right */
+      }
+      nav div.links {
+        flex-wrap: wrap;  /* allow wrapping for two rows */
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        order: 2;
+        padding-left: 0; /* no left padding on mobile */
+      }
+      nav div.links a {
+        flex: 1 1 45%; /* roughly half width, so two per row */
+        text-align: center;
+      }
+      .stats {
+        grid-template-columns: repeat(2, 1fr) !important; /* two per row */
+        gap: 16px;
+        margin-top: 20px;
+      }
+      textarea {
+        font-size: 14px;
+        padding: 12px;
+      }
+      .card-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
       }
     }
+
   </style>
 </head>
 <body>
