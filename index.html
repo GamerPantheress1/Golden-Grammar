@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Word Count Hero – Free Word Counter</title>
-  <!-- Favicon link: replace 'favicon.ico' with your actual favicon filename if different -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
     :root {
       --coral: #DE7356;
@@ -75,17 +73,12 @@
       padding: 0 24px;
     }
 
-    section {
-      display: none;
-    }
-    section.active {
-      display: block;
-    }
+    section { display: none; }
+    section.active { display: block; }
 
-    h1, h2, h3 {
-      margin-top: 0;
-      color: #1f1f1f;
-    }
+    h1 { margin-top: 0; color: #1f1f1f; }
+    h2 { margin-top: 0; color: #1f1f1f; }
+    h3 { margin-top: 0; color: #1f1f1f; }
 
     .tool-box {
       background: var(--white);
@@ -101,7 +94,7 @@
       border: 1px solid #ddd;
       padding: 18px;
       font-size: 16px;
-      font-family: inherit;
+      font-family: inherit; /* match site font */
       resize: vertical;
       color: var(--text);
     }
@@ -181,6 +174,40 @@
       font-size: 14px;
       user-select: none;
     }
+
+    /* Mobile Responsive */
+
+    @media (max-width: 600px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+      }
+
+      textarea {
+        font-size: 14px;
+        padding: 12px;
+      }
+
+      nav div.links {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 12px;
+      }
+
+      header nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -188,6 +215,7 @@
     <nav>
       <div class="logo" onclick="showPage('tool')">Word Count Hero</div>
       <div class="links">
+        <!-- Removed Tool link -->
         <a href="#" onclick="showPage('tips'); return false;">Writing Tips</a>
         <a href="#" onclick="showPage('how'); return false;">How It Works</a>
         <a href="#" onclick="showPage('pricing'); return false;">Pricing</a>
@@ -338,11 +366,8 @@
 
     function showPage(id) {
       document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-      const target = document.getElementById(id);
-      if (target) {
-        target.classList.add('active');
-        window.scrollTo(0, 0);
-      }
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0, 0);
     }
   </script>
 </body>
