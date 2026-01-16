@@ -5,25 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Word Count Hero – Free Online Word Counter Tool</title>
-  <meta name="description" content="Word Count Hero is a free online word counter that instantly counts words, characters, characters without spaces, sentences, paragraphs, and reading time. Accurate, private, and SEO-friendly." />
+  <meta name="description" content="Word Count Hero is a free online word counter that instantly counts words, characters, sentences, paragraphs, and reading time. Accurate, private, and easy to use." />
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦸</text></svg>">
+  <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- Schema.org -->
+  <!-- Schema.org structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Word Count Hero",
-    "applicationCategory": "ProductivityApplication",
+    "applicationCategory": "UtilityApplication",
     "operatingSystem": "All",
+    "description": "A free online word counter tool that counts words, characters, sentences, paragraphs, and reading time instantly.",
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
-    },
-    "description": "A free online word counter tool that counts words, characters, sentences, paragraphs, and reading time instantly."
+    }
   }
   </script>
 
@@ -39,7 +39,7 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--beige);
       color: var(--text);
       line-height: 1.65;
@@ -48,7 +48,7 @@
     header {
       background: var(--white);
       border-bottom: 1px solid #eee;
-      padding: 16px;
+      padding: 16px 24px;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -58,91 +58,84 @@
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .logo {
       font-weight: 800;
-      font-size: 28px;
+      font-size: 24px;
       color: var(--coral);
       cursor: pointer;
-      text-align: center;
     }
 
     .links {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      gap: 12px 24px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
       justify-content: center;
     }
 
-    .links a {
+    nav a {
       text-decoration: none;
       color: var(--text);
       font-weight: 600;
-      font-size: 15px;
     }
 
-    .links a:hover {
-      color: var(--coral);
-    }
+    nav a:hover { color: var(--coral); }
 
     main {
       max-width: 1100px;
-      margin: 32px auto;
-      padding: 0 20px;
+      margin: 40px auto;
+      padding: 0 24px;
     }
 
     section { display: none; }
     section.active { display: block; }
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 16px;
-      text-align: center;
+    h1, h2, h3 {
+      color: #1f1f1f;
+      margin-top: 0;
     }
 
-    h2 {
-      font-size: 1.6rem;
-      margin-top: 32px;
-    }
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 1.7rem; }
 
     p {
-      max-width: 720px;
-      margin-bottom: 16px;
+      max-width: 760px;
       font-size: 1.05rem;
     }
 
     .tool-box {
       background: var(--white);
       border-radius: 18px;
-      padding: 22px;
+      padding: 28px;
       box-shadow: 0 12px 32px rgba(0,0,0,0.06);
     }
 
     textarea {
       width: 100%;
-      min-height: 200px;
+      min-height: 220px;
       border-radius: 14px;
       border: 1px solid #ddd;
-      padding: 16px;
+      padding: 18px;
       font-size: 16px;
-      resize: vertical;
+      font-family: inherit;
     }
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 18px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      margin-top: 20px;
     }
 
     .stat {
       background: var(--beige);
       border-radius: 14px;
-      padding: 14px;
+      padding: 16px;
       text-align: center;
       font-weight: 600;
     }
@@ -152,104 +145,120 @@
       font-size: 26px;
       font-weight: 800;
       color: var(--coral);
-      margin-top: 4px;
+      margin-top: 6px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
     }
 
     .card {
       background: var(--white);
       border-radius: 18px;
-      padding: 28px;
+      padding: 32px;
       box-shadow: 0 12px 32px rgba(0,0,0,0.06);
-      margin-top: 24px;
+    }
+
+    .price {
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--coral);
     }
 
     footer {
       text-align: center;
-      padding: 40px 16px;
+      padding: 50px 20px;
       color: #777;
       font-size: 14px;
     }
 
-    /* Desktop enhancements only (does NOT break mobile) */
-    @media (min-width: 900px) {
-      nav {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      .links {
-        display: flex;
-        gap: 24px;
-      }
+    /* Mobile – STACK, DON’T HIDE */
+    @media (max-width: 768px) {
       .stats {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
-      h1 {
-        text-align: left;
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .logo {
+        width: 100%;
+        text-align: center;
+      }
+
+      p {
+        max-width: 100%;
       }
     }
   </style>
 </head>
 
 <body>
-
 <header>
   <nav>
     <div class="logo" onclick="showPage('tool')">Word Count Hero</div>
     <div class="links">
-      <a href="#" onclick="showPage('tool');return false;">Tool</a>
-      <a href="#" onclick="showPage('tips');return false;">Writing Tips</a>
-      <a href="#" onclick="showPage('how');return false;">How It Works</a>
-      <a href="#" onclick="showPage('policy');return false;">Privacy</a>
+      <a href="#" onclick="showPage('tips')">Writing Tips</a>
+      <a href="#" onclick="showPage('how')">How It Works</a>
+      <a href="#" onclick="showPage('pricing')">Pricing</a>
+      <a href="#" onclick="showPage('policy')">Privacy & Terms</a>
     </div>
   </nav>
 </header>
 
 <main>
-
-<section id="tool" class="active">
-  <h1>Free Online Word Counter</h1>
-
-  <div class="tool-box">
-    <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
-
-    <div class="stats">
-      <div class="stat">Words<span id="wordCount">0</span></div>
-      <div class="stat">Characters<span id="charCount">0</span></div>
-      <div class="stat">No Spaces<span id="noSpaceCount">0</span></div>
-      <div class="stat">Sentences<span id="sentenceCount">0</span></div>
-      <div class="stat">Paragraphs<span id="paragraphCount">0</span></div>
-      <div class="stat">Min Read<span id="readTime">0</span></div>
+  <section id="tool" class="active">
+    <h1>Free Online Word Counter Tool</h1>
+    <div class="tool-box">
+      <textarea id="textInput" placeholder="Start typing or paste your text here..."></textarea>
+      <div class="stats">
+        <div class="stat">Words<span id="wordCount">0</span></div>
+        <div class="stat">Characters<span id="charCount">0</span></div>
+        <div class="stat">No Spaces<span id="noSpaceCount">0</span></div>
+        <div class="stat">Sentences<span id="sentenceCount">0</span></div>
+        <div class="stat">Paragraphs<span id="paragraphCount">0</span></div>
+        <div class="stat">Min Read<span id="readTime">0</span></div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="card">
-    <h2>What is Word Count Hero?</h2>
-    <p>Word Count Hero is a free online word counter tool that instantly counts words, characters (with and without spaces), sentences, paragraphs, and reading time. It’s designed for writers, bloggers, students, and SEO professionals who need fast and accurate text analysis.</p>
-    <p>All processing happens locally in your browser. Your text is never uploaded, stored, or tracked.</p>
-  </div>
-</section>
+  <section id="tips">
+    <h1>Writing Tips</h1>
+    <div class="card-grid">
+      <div class="card"><h2>Clarity First</h2><p>Clear writing beats clever writing every time.</p></div>
+      <div class="card"><h2>Strong Structure</h2><p>Headings and short paragraphs improve readability.</p></div>
+      <div class="card"><h2>Edit Ruthlessly</h2><p>Remove filler. Every word should earn its place.</p></div>
+    </div>
+  </section>
 
-<section id="tips">
-  <h1>Writing Tips</h1>
-  <div class="card">
-    <p>Clear writing starts with structure. Use short paragraphs, direct language, and logical flow. Tools like Word Count Hero help you stay within ideal word counts for SEO, readability, and user engagement.</p>
-  </div>
-</section>
+  <section id="how">
+    <h1>How It Works</h1>
+    <p>Type or paste text and see real-time results instantly. Everything runs locally in your browser — nothing is saved.</p>
+  </section>
 
-<section id="how">
-  <h1>How It Works</h1>
-  <div class="card">
-    <p>As you type or paste text, Word Count Hero analyzes it in real time using lightweight JavaScript. Counts update instantly with no delay and no data sent anywhere.</p>
-  </div>
-</section>
+  <section id="pricing">
+    <div class="card" style="text-align:center;">
+      <h1>Pricing</h1>
+      <div class="price">$0</div>
+      <p>Completely free. Forever.</p>
+    </div>
+  </section>
 
-<section id="policy">
-  <h1>Privacy Policy</h1>
-  <div class="card">
-    <p>We do not collect, store, or transmit any user data. No cookies. No tracking. Everything runs locally.</p>
-  </div>
-</section>
-
+  <section id="policy">
+    <div class="card">
+      <h1>Privacy & Terms</h1>
+      <p>No data collection. No storage. No tracking.</p>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -268,6 +277,7 @@
   input.addEventListener('input', () => {
     const raw = input.value;
     const text = raw.trim();
+
     const words = text ? text.split(/\s+/).length : 0;
 
     wordCount.textContent = words;
@@ -281,9 +291,8 @@
   function showPage(id) {
     document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 </script>
-
 </body>
 </html>
